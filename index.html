@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>WestJet CCopy</title>
+</head>
+<body>
+    <div class="card" id="card1">
+        <section id ="cchip">
+             <img id ="cchipImg" src="./images/cchip.png" alt="">
+        </section>
+       
+        <section id="num">#### #### #### ####</section>
+        <section id="name">CARDHOLDER NAME</section>
+        <section id="exp">Expiry <span id="month-text">MM</span>/<span id="year-text">YY</span></section>
+    </div>
+
+    <div class="back card" id="card2">
+        <section id="blackStrip"></section>
+        <section id="cvv">CVV</section>
+    </div>
+    <form>
+        <div class="input-wrapper numName">
+            <input
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            onkeyup="myNumFunc()"
+            class="myInput" id="numIn" type="number" maxlength="16" required>
+            <label for="numIn">Card number</label>
+
+            <span></span>
+        </div>
+        
+        <div class="input-wrapper numName">
+            <input 
+            onkeyup="myNameFunc()"
+            class="myInput" id="nameIn" type="text" required maxlength="42"> 
+            <label for="nameIn">Cardholder name</label>
+
+            <span></span>
+        </div>
+
+        <div class="input-wrapper expCVV">
+            <select onChange="myExpMFunc()" class="myInput" id="expMIn" type="text" required>
+                <option disabled selected value></option>
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <label for="expMIn">MM</label>
+
+            <span></span>
+        </div>
+        
+        <div class="input-wrapper expCVV">
+            <select onChange="myExpYFunc()" class="myInput" id="expYIn" type="text" required>
+                <option disabled selected value></option>
+                <option value="1">23</option>
+                <option value="2">24</option>
+                <option value="3">25</option>
+                <option value="4">26</option>
+                <option value="5">27</option>
+            </select>
+            <label for="expYIn">YY</label>
+
+            <span></span>
+        </div>
+
+        <div class="input-wrapper expCVV">
+            <input 
+            onInput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            onKeyUp="MyCvvFunc()"
+            onFocus="addBackClass()"
+            onFocusOut="removeBackClass()"
+            class="myInput" id="cvvIn" type="number" maxlength="3" required>
+            <label for="cvvIn">CVV</label>
+
+            <span></span>
+        </div>
+    </form>
+    <script src="index.js"> </script>
+</body>
+</html>
